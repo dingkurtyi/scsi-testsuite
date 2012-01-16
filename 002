@@ -1,10 +1,16 @@
 #!/bin/bash
 #
-# Make sure sense data is correct, most notable that the additional
-# sense length field is set.
+# Check the sense key for INVALID FIELD IN {PARAMETER LIST,CDB}
+#
+# According to SPC-4, the sense key for commands that are failed with
+# INVALID FIELD IN PARAMETER LIST and INVALID FIELD IN CDB should be
+# ILLEGAL REQUEST (5h)
 #
 # Based on a test case from Roland Dreier <roland@purestorage.com>.
 #
+#
+# XXX: based on commit 360f0b2466225790e8886ff097c2fdc6c57d4949
+
 
 seq=`basename $0`
 echo "QA output created by $seq"
@@ -19,7 +25,7 @@ status=1	# failure is the default!
 
 _require_command sg_raw
 
-sg_raw -v $TEST_DEV 2 0 0 0 0 0
+sg_raw -r 1 -v $TEST_DEV 3 1 0 0 ff 0
 
 # success, all done
 echo "*** done"

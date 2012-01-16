@@ -1,0 +1,14 @@
+QA output created by 002
+    cdb to send: 03 01 00 00 ff 00 
+SCSI Status: Good 
+
+Sense Information:
+ Fixed format, current;  Sense key: No Sense
+ Additional sense: No additional sense information
+ Raw sense data (in hex):
+        70 00 00 00 00 00 00 0a  00 00 00 00 00 00 00 00    
+        00 00                                               
+
+Received 1 bytes of data:
+ 00     00                                                  .
+*** done
