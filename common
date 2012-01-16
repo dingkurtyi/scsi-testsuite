@@ -42,10 +42,6 @@ have_test_arg=false
 randomize=false
 rm -f $tmp.list $tmp.tmp $tmp.sed
 
-export IMGFMT=raw
-export IMGPROTO=file
-export QEMU_IO_OPTIONS=""
-
 for r
 do
 
@@ -116,19 +112,8 @@ common options
     -v			verbose
 
 check options
-    -raw                test raw (default)
-    -cow                test cow
-    -qcow               test qcow
-    -qcow2              test qcow2
-    -qed                test qed
-    -vdi                test vdi
-    -vpc                test vpc
-    -vmdk               test vmdk
-    -rbd                test rbd
     -sheepdog           test sheepdog
     -xdiff		graphical mode diff
-    -nocache		use O_DIRECT on backing file
-    -misalign		misalign memory allocations
     -n			show me, do not run tests
     -T			output timestamps
     -r 			randomize test order
@@ -140,66 +125,6 @@ testlist options
     NNN-NNN		include test range (eg. 012-021)
 '
 	    exit 0
-	    ;;
-
-	-raw)
-	    IMGFMT=raw
-	    xpand=false
-	    ;;
-
-	-cow)
-	    IMGFMT=cow
-	    xpand=false
-	    ;;
-
-	-qcow)
-	    IMGFMT=qcow
-	    xpand=false
-	    ;;
-
-	-qcow2)
-	    IMGFMT=qcow2
-	    xpand=false
-	    ;;
-
-	-qed)
-	    IMGFMT=qed
-	    xpand=false
-	    ;;
-
-	-vdi)
-	    IMGFMT=vdi
-	    xpand=false
-	    ;;
-
-	-vmdk)
-	    IMGFMT=vmdk
-	    xpand=false
-	    ;;
-
-	-vpc)
-	    IMGFMT=vpc
-	    xpand=false
-	    ;;
-
-	-rbd)
-	    IMGPROTO=rbd
-	    xpand=false
-	    ;;
-
-	-sheepdog)
-	    IMGPROTO=sheepdog
-	    xpand=false
-	    ;;
-
-	-nocache)
-	    QEMU_IO_OPTIONS="$QEMU_IO_OPTIONS --nocache"
-	    xpand=false
-	    ;;
-
-	-misalign)
-	    QEMU_IO_OPTIONS="$QEMU_IO_OPTIONS --misalign"
-	    xpand=false
 	    ;;
 
 	-g)	# -g group ... pick from group file
@@ -324,7 +249,3 @@ if $randomize
 then
     list=`echo $list | awk -f randomize.awk`
 fi
-
-[ "$QEMU" = "" ] && _fatal "qemu not found"
-[ "$QEMU_IMG" = "" ] && _fatal "qemu-img not found"
-[ "$QEMU_IO" = "" ] && _fatal "qemu-img not found"

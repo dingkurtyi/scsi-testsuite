@@ -128,22 +128,10 @@ _filter_date()
 	-e 's/[A-Z][a-z][a-z] [A-z][a-z][a-z]  *[0-9][0-9]* [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9][0-9][0-9][0-9]$/DATE/'
 }
 
-# replace occurrences of the actual TEST_DIR value with TEST_DIR
+# replace occurrences of the actual TEST_DEV value with TEST_DEV
 _filter_testdir()
 {
-    sed -e "s#$TEST_DIR#TEST_DIR#g"
-}
-
-# replace occurrences of the actual IMGFMT value with IMGFMT
-_filter_imgfmt()
-{
-    sed -e "s#$IMGFMT#IMGFMT#g"
-}
-
-# sanitize qemu-io output
-_filter_qemu_io()
-{
-    sed -e "s/[0-9]* ops\; [0-9/:. sec]* ([0-9/.inf]* [EPTGMKiBbytes]*\/sec and [0-9/.inf]* ops\/sec)/X ops\; XX:XX:XX.X (XXX YYY\/sec and XXX ops\/sec)/"
+    sed -e "s#$TEST_DEV#TEST_DEV#g"
 }
 
 # make sure this script returns success

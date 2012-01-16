@@ -1,15 +1,12 @@
 QA output created by 001
-Formatting 'TEST_DIR/t.IMGFMT', fmt=IMGFMT size=134217728 
+    cdb to send: 02 00 00 00 00 00 
+SCSI Status: Check Condition 
 
-== reading whole image ==
-read 134217728/134217728 bytes at offset 0
-128 MiB, X ops; XX:XX:XX.X (XXX YYY/sec and XXX ops/sec)
+Sense Information:
+ Fixed format, current;  Sense key: Illegal Request
+ Additional sense: Invalid command operation code
+ Raw sense data (in hex):
+        70 00 05 00 00 00 00 0a  00 00 00 00 20 00 00 00    
+        00 00                                               
 
-== rewriting whole image ==
-wrote 134217728/134217728 bytes at offset 0
-128 MiB, X ops; XX:XX:XX.X (XXX YYY/sec and XXX ops/sec)
-
-== verify pattern ==
-read 134217728/134217728 bytes at offset 0
-128 MiB, X ops; XX:XX:XX.X (XXX YYY/sec and XXX ops/sec)
 *** done
