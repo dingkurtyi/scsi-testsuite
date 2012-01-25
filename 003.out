@@ -1,0 +1,14 @@
+QA output created by 003
+    cdb to send: 03 00 00 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+    cdb to send: 1a 00 01 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+*** done

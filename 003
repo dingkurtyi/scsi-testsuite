@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Test that zero allocation length CDBs are handled correctly.
+#
+# Based on a test case from Nicholas Bellinger <nab@linux-iscsi.org>
+#
+
+seq=`basename $0`
+echo "QA output created by $seq"
+
+here=`pwd`
+tmp=/tmp/$$
+status=1	# failure is the default!
+
+# get standard environment, filters and checks
+. ./common.rc
+. ./common.filter
+
+_require_command sg_raw
+
+sg_raw -v $TEST_DEV 3 0 0 0 0 0
+sg_raw -v $TEST_DEV 0x1a 0 1 0 0 0
+
+# success, all done
+echo "*** done"
+rm -f $seq.full
+status=0
