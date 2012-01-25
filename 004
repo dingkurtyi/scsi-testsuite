@@ -2,7 +2,7 @@
 #
 # Test that zero length READ/WRITE requests are handled properly
 #
-# Based on a test case from Nicholas Bellinger <nab@linux-iscsi.org>
+# Based on a test case from Roland Dreier <roland@purestorage.com>
 #
 
 seq=`basename $0`
@@ -17,12 +17,6 @@ status=1	# failure is the default!
 . ./common.filter
 
 _require_command sg_raw
-
-# READ (6)
-#sg_raw -v $TEST_DEV  0x08 0 0 0 0 0
-
-# WRITE (6)
-#sg_raw -v $TEST_DEV  0x0a 0 0 0 0 0
 
 # READ (10)
 sg_raw -v $TEST_DEV 0x28 0 0 0 0 0 0 0 0 0

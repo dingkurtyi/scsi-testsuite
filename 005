@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Test that INQUIRY commands with EVPD = 0 but PAGE CODE != 0 is correctly
+# rejected.
+#
+# Based on a bug report from Roland Dreier <roland@purestorage.com>
+#
+
+seq=`basename $0`
+echo "QA output created by $seq"
+
+here=`pwd`
+tmp=/tmp/$$
+status=1	# failure is the default!
+
+# get standard environment, filters and checks
+. ./common.rc
+. ./common.filter
+
+_require_command sg_raw
+
+sg_raw -v $TEST_DEV -r 54 0x12 0 1 0 36 0
+
+# success, all done
+echo "*** done"
+rm -f $seq.full
+status=0
