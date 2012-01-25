@@ -1,7 +1,6 @@
 #!/bin/bash
 #
-# Test that INQUIRY commands with EVPD = 0 but PAGE CODE != 0 is correctly
-# rejected.
+# Test that INQUIRY for a page code without the EVPD flag set fails correctly.
 #
 # Based on a bug report from Roland Dreier <roland@purestorage.com>
 #
