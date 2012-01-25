@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# Test that zero length READ/WRITE requests are handled properly
+#
+# Based on a test case from Nicholas Bellinger <nab@linux-iscsi.org>
+#
+
+seq=`basename $0`
+echo "QA output created by $seq"
+
+here=`pwd`
+tmp=/tmp/$$
+status=1	# failure is the default!
+
+# get standard environment, filters and checks
+. ./common.rc
+. ./common.filter
+
+_require_command sg_raw
+
+# READ (6)
+#sg_raw -v $TEST_DEV  0x08 0 0 0 0 0
+
+# WRITE (6)
+#sg_raw -v $TEST_DEV  0x0a 0 0 0 0 0
+
+# READ (10)
+sg_raw -v $TEST_DEV 0x28 0 0 0 0 0 0 0 0 0
+
+# WRITE (10)
+sg_raw -v $TEST_DEV 0x2a 0 0 0 0 0 0 0 0 0
+
+# READ (16)
+sg_raw -v $TEST_DEV 0x88 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+# WRITE (16)
+sg_raw -v $TEST_DEV 0x8a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+# success, all done
+echo "*** done"
+rm -f $seq.full
+status=0

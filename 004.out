@@ -1,0 +1,26 @@
+QA output created by 004
+    cdb to send: 28 00 00 00 00 00 00 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+    cdb to send: 2a 00 00 00 00 00 00 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+    cdb to send: 88 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+    cdb to send: 8a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+SCSI Status: Good 
+
+Sense Information:
+sense buffer empty
+
+*** done
