@@ -3,7 +3,7 @@
 # Make sure sense data is correct, most notable that the additional
 # sense length field is set.
 #
-# Based on a test case from Roland Dreier <roland@purestorage.com>.
+# Based on a test case from Roland Dreier / Pure Storage, Inc.
 #
 
 seq=`basename $0`

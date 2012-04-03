@@ -2,7 +2,7 @@
 #
 # Test that zero length READ/WRITE requests are handled properly
 #
-# Based on a bug report from Roland Dreier <roland@purestorage.com>
+# Based on a bug report from Roland Dreier / Pure Storage, Inc.
 #
 
 seq=`basename $0`

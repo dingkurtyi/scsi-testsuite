@@ -2,7 +2,7 @@
 #
 # Test that INQUIRY with the EVPD flag for an incorrect EVPD page fails.
 #
-# Based on a bug report from Roland Dreier <roland@purestorage.com>
+# Based on a bug report from Roland Dreier / Pure Storage, Inc.
 #
 
 seq=`basename $0`

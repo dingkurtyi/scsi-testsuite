@@ -6,7 +6,7 @@
 # INVALID FIELD IN PARAMETER LIST and INVALID FIELD IN CDB should be
 # ILLEGAL REQUEST (5h)
 #
-# Based on a test case from Roland Dreier <roland@purestorage.com>.
+# Based on a test case from Roland Dreier / Pure Storage, Inc.
 #
 
 seq=`basename $0`
