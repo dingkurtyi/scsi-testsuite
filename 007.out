@@ -1,0 +1,12 @@
+QA output created by 007
+     0x0	Supported VPD pages
+     0x83	Device identification
+    cdb to send: 12 01 83 00 02 00
+SCSI Status: Good
+
+Sense Information:
+sense buffer empty
+
+Received 2 bytes of data:
+ 00     00 83                                               ..
+*** done

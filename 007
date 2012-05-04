@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# Test that mandatory VPD pages are supported.
+#
+
+seq=`basename $0`
+echo "QA output created by $seq"
+
+here=`pwd`
+tmp=/tmp/$$
+status=1	# failure is the default!
+
+# get standard environment, filters and checks
+. ./common.rc
+. ./common.filter
+
+_require_command sg_inq
+_require_command sg_raw
+
+sg_inq -p 0x00 $TEST_DEV | fgrep -we 0x0 -e 0x83
+execute_cdb -r 2 0x12 1 0x83 0 2 0
+
+
+# success, all done
+echo "*** done"
+rm -f $seq.full
+status=0
