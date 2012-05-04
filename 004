@@ -19,16 +19,16 @@ status=1	# failure is the default!
 _require_command sg_raw
 
 # READ (10)
-sg_raw -v $TEST_DEV 0x28 0 0 0 0 0 0 0 0 0
+execute_cdb 0x28 0 0 0 0 0 0 0 0 0
 
 # WRITE (10)
-sg_raw -v $TEST_DEV 0x2a 0 0 0 0 0 0 0 0 0
+execute_cdb 0x2a 0 0 0 0 0 0 0 0 0
 
 # READ (16)
-sg_raw -v $TEST_DEV 0x88 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+execute_cdb 0x88 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 # WRITE (16)
-sg_raw -v $TEST_DEV 0x8a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+execute_cdb 0x8a 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
 
 # success, all done
 echo "*** done"

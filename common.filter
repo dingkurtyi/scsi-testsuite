@@ -134,5 +134,16 @@ _filter_testdir()
     sed -e "s#$TEST_DEV#TEST_DEV#g"
 }
 
+# remove trailing whitespace, some versions of sg3_utils do that
+_filter_spaces()
+{
+    sed -e 's/ *$//'
+}
+
+execute_cdb()
+{
+    sg_raw -v $TEST_DEV "$@" 2>&1 | _filter_spaces
+}
+
 # make sure this script returns success
 /bin/true

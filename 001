@@ -19,7 +19,7 @@ status=1	# failure is the default!
 
 _require_command sg_raw
 
-sg_raw -v $TEST_DEV 2 0 0 0 0 0
+execute_cdb 2 0 0 0 0 0
 
 # success, all done
 echo "*** done"

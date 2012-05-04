@@ -1,17 +1,17 @@
 QA output created by 006
-    cdb to send: 12 01 bf 00 36 00 
-SCSI Status: Check Condition 
+    cdb to send: 12 01 bf 00 36 00
+SCSI Status: Check Condition
 
 Sense Information:
  Fixed format, current;  Sense key: Illegal Request
  Additional sense: Invalid field in cdb
  Raw sense data (in hex):
-        70 00 05 00 00 00 00 0a  00 00 00 00 24 00 00 00    
-        00 00                                               
+        70 00 05 00 00 00 00 0a  00 00 00 00 24 00 00 00
+        00 00
 
 Received 54 bytes of data:
  00     00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00    ................
  10     00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00    ................
  20     00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00    ................
- 30     00 00 00 00 00 00                                   ......          
+ 30     00 00 00 00 00 00                                   ......
 *** done
